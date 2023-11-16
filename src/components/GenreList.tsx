@@ -1,26 +1,7 @@
-import { useState, useEffect } from "react";
+import useGenres from "../hooks/useGenres";
 
-function useGenres() {
-  const [genres, setGenres] = useState([]);
-
-  useEffect(() => {
-    // Your code to fetch genres goes here
-    // For example:
-    const fetchGenres = async () => {
-      const response = await fetch("/api/genres");
-      const data = await response.json();
-      setGenres(data);
-    };
-
-    fetchGenres();
-  }, []);
-
-  return genres;
-}
-
-function GenreList() {
-  const genres = useGenres();
-
+const GenreList = () => {
+  const { genres } = useGenres();
   return (
     <ul>
       {genres.map((genre) => (
@@ -28,4 +9,6 @@ function GenreList() {
       ))}
     </ul>
   );
-}
+};
+
+export default GenreList;
