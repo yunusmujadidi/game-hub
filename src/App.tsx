@@ -27,7 +27,10 @@ const App = () => {
       </GridItem>
       <Show above="lg">
         <GridItem paddingLeft={5} area="aside">
-          <GenreList onSelectedGenre={handleSelectedGenre} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectedGenre={handleSelectedGenre}
+          />
         </GridItem>
       </Show>
 
